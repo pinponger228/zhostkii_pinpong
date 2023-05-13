@@ -1,12 +1,10 @@
 from pygame import *
 from random import randint
 
-'''Необходимые классы'''
 lost = 0
 image_bullet = "A.png"
-# класс-родитель для спрайтов
+
 class GameSprite(sprite.Sprite):
-    # конструктор класса
     def __init__(self, player_image, player_x, player_y, player_speed):
         super().__init__()
         # каждый спрайт должен хранить свойство image - изображение
@@ -56,8 +54,8 @@ class Bullet(GameSprite):
         if self.rect.y < 0:
             self.kill()
 
-win_height = 900
-win_width = 500
+win_height = 1000
+win_width = 700
 
 ship = Player("slide-3.jpg", 10, win_height - 270,15)
 monsters = sprite.Group()
@@ -118,8 +116,6 @@ while game:
             score = + 1
             monster = Enemy("666.jpg", randint(80, win_width - 80), -40, 20)
             monsters.add(monster)
-            #monster = Enemy("boss.png", randint(80, win_width - 90), -50, 30)
-            #monsters.add(monster)
 
             
         text_lose = font1.render(
